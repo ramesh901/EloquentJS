@@ -1,26 +1,25 @@
-function reverseArray(arr) {
+function reverseArray (arr) {
   var revArr = []
-  for(var i = 0;i< arr.length;i++) {
+  for (var i = 0; i < arr.length; i++) {
     revArr.unshift(arr[i])// unshift is opposite of push. Push add element in the end.
-    //unshift add element in the beginning.
+    // unshift add element in the beginning.
   }
   return revArr
 }
 
-function reverseArrayInPlace(arr) {
-  var last = arr.length - 1;
+function reverseArrayInPlace (arr) {
   var temp
-  for (var i = 0,j = arr.length - 1 ;i <= Math.floor(arr.length/2);i++, j--) {
+  for (var i = 0, j = arr.length - 1; i <= Math.floor(arr.length / 2); i++, j--) {
     temp = arr[i]
     arr[i] = arr[j]
     arr[j] = temp
   }
 }
 
-console.log(reverseArray(["A", "B", "C"]));
-var arrayValue = [1, 2, 3, 4, 5];
-reverseArrayInPlace(arrayValue);
-console.log(arrayValue);
+console.log(reverseArray(['A', 'B', 'C']))
+var arrayValue = [1, 2, 3, 4, 5]
+reverseArrayInPlace(arrayValue)
+console.log(arrayValue)
 
 /*
 
@@ -37,6 +36,3 @@ The actual book code is better. It doesn't use additional variable (j) because t
 symmetry so you can use arr.length without additional variable
 
 */
-
-
-
