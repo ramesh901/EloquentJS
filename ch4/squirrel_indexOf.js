@@ -6,7 +6,8 @@ function tableFor(event,data) {
   for( var i = 0; i < data.length;i++){
     index = 0
     //This is optimal way of covering four scenarios with just 2 'if' condition
-    //The first 'if' is INCORRECT
+    //The first 'if' is INCORRECT. You can use 'in' to parse 'key' portion
+    //but here you try to parse 'value'portion
     if(event in data[i].events) 
       index += 2
     if(data[i].squirrel)
