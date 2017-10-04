@@ -1,6 +1,12 @@
 let ANCESTRY_FILE = require('./data.js')
 let ancestry = JSON.parse(ANCESTRY_FILE)
+/**************************************
+Lesson 1- Don't assign 'forEach' expression to any variable. Because it always 
+return undefined
+Lesson 2 - Difference between 'map' and 'forEach' is that map return modified array
+'forEach' doesn't return anything.
 
+***************************************/
 //My Code
 //BAD THING IS I used global variable 
 var nameAge = []
@@ -24,7 +30,7 @@ console.log("output of first version of code:",nameAge)
 //============================================
 function over90() {
   var nameAge90 = []
-  var names = ancestry.forEach(function(person) {
+  ancestry.forEach(function(person) {
     var entry = {}
     var age = person.died - person.born
     if( age > 90) {
@@ -62,5 +68,3 @@ console.log("output of Book code:",map(overNinety, function(person) {
   entry[person.name] = age
   return entry;
 }));
-// → ["Clara Aernoudts", "Emile Haverbeke",
-//    "Maria Haverbeke"]
