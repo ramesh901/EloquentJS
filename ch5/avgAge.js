@@ -9,38 +9,38 @@ person = ancestry.filter((person) => {return function(gender) {
 console.log(person("m"))
 */
 
-male = ancestry.filter( function(person) {
-  return person["sex"] === "m"
+var male = ancestry.filter(function (person) {
+  return person['sex'] === 'm'
 })
 
-maleSumAge = male.reduce(function(sum,person) {
+var maleSumAge = male.reduce(function (sum, person) {
   sum += (person.died - person.born)
- return sum
-},0)
+  return sum
+}, 0)
 
-female = ancestry.filter( function(person) {
-  return person["sex"] === "f"
+var female = ancestry.filter(function (person) {
+  return person['sex'] === 'f'
 })
 
-femaleSumAge = female.reduce(function(sum,person) {
+var femaleSumAge = female.reduce(function (sum, person) {
   sum += (person.died - person.born)
- return sum
-},0)
+  return sum
+}, 0)
 
-console.log("male average age:",maleSumAge/male.length)
-console.log("female average age:",femaleSumAge/female.length)
+console.log('male average age:', maleSumAge / male.length)
+console.log('female average age:', femaleSumAge / female.length)
 
-//BOOK CODE
+// BOOK CODE
 
-function average(array) {
-  function plus(a, b) { return a + b; }
-  return array.reduce(plus) / array.length;
+function average (array) {
+  function plus (a, b) { return a + b }
+  return array.reduce(plus) / array.length
 }
-function age(p) { return p.died - p.born; }
-function male(p) { return p.sex == "m"; }
-function female(p) { return p.sex == "f"; }
+function age (p) { return p.died - p.born }
+function males (p) { return p.sex === 'm' }
+function females (p) { return p.sex === 'f' }
 
-console.log(average(ancestry.filter(male).map(age)));
+console.log(average(ancestry.filter(males).map(age)))
 // → 61.67
-console.log(average(ancestry.filter(female).map(age)));
+console.log(average(ancestry.filter(females).map(age)))
 // → 54.56
