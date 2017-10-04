@@ -44,8 +44,33 @@ function over90 () {
 console.log('calling over90 function', over90())
 // console.log(nameAge90) // YOU CAN'T ACCESS nameAge90 AS ITS LOCAL OF over90()
 
-// ==========================================
+// ANOTHER VERSION USING FILTER AND MAP - EXCELLENT ONE
+var temp = ancestry.filter(function (person) {
+  return (person.died - person.born) > 90
+}).map(function (person) {
+  var entry = {}
+  entry[person.name] = person.died - person.born
+  return entry
+})
 
+console.log('temp value', temp)
+
+// ANOTHER VERSION USING REDUCE
+var temp1 = ancestry.reduce(function (acc, person) {
+  var age = person.died - person.born
+
+  if (age > 90) {
+    acc[person.name] = age
+    // console.log(acc)
+  }
+  return acc
+}, {})
+
+console.log('temp1 value', temp1)
+
+// ==========================================
+// BOOK CODE
+// ===========================================
 function map (array, transform) {
   var mapped = []
   for (var i = 0; i < array.length; i++) { mapped.push(transform(array[i])) }

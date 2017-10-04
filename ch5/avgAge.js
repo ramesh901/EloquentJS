@@ -18,6 +18,13 @@ var maleSumAge = male.reduce(function (sum, person) {
   return sum
 }, 0)
 
+var maleTotalAge = ancestry.reduce(function (sum, person) {
+  if (person['sex'] === 'm') {
+    sum += (person.died - person.born)
+  }
+  return sum
+}, 0)
+
 var female = ancestry.filter(function (person) {
   return person['sex'] === 'f'
 })
@@ -28,6 +35,7 @@ var femaleSumAge = female.reduce(function (sum, person) {
 }, 0)
 
 console.log('male average age:', maleSumAge / male.length)
+console.log('male average age- maleTotalAge:', maleTotalAge / male.length)
 console.log('female average age:', femaleSumAge / female.length)
 
 // BOOK CODE
