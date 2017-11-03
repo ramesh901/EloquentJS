@@ -17,4 +17,8 @@ for (var n = 1; n <= 100; n++) {
 }
 
 Learned about using logical OR in console.log
+
+Another way of seeing it. There is one main track 1 to 100.
+And subtrack for special condition n% 3 and n%5. You merge subtrack into 
+main track using ||
 */
